@@ -1,10 +1,19 @@
 # WordQuest 单词冒险
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-e8b84b.svg)](LICENSE)
+[![Platform: ESP-Mosaico](https://img.shields.io/badge/platform-ESP--Mosaico%20%C2%B7%20ESP32--S31-2e5d34.svg)](#硬件与安装)
+[![Vibe Mode](https://img.shields.io/badge/Vibe%20Mode-0.2.0%2B-14231a.svg)](#硬件与安装)
+[![Firmware](https://img.shields.io/badge/firmware-wordquest--v0.2--system--update.irisfw-8a6a2a.svg)](firmware/wordquest-v0.2-system-update.irisfw)
+
 **在像素营地里打 Boss 背单词。** 每天几个新词，看卡片、做选择，答对就是一刀，把 Boss 砍翻为止。
+
+> **下载固件**：[`wordquest-v0.2-system-update.irisfw`](firmware/wordquest-v0.2-system-update.irisfw)（2.16 MiB，Vibe Mode 0.2+）· 也见 [Releases](https://github.com/zaxchou/wordquest/releases/latest)
 
 ![封面](docs/submission/cover.png)
 
 ESP-Mosaico 是一块 480×480 的圆角触摸屏，竖着握在手里正好像一台迷你掌机。WordQuest 就是照着这个尺寸做的：整屏像素营地，一屏一个动作，所有按钮都能用大拇指点到。
+
+**目录**：[一局怎么打](#一局是怎么打的) · [功能](#功能) · [操作](#怎么操作) · [截图](#更多截图) · [安装](#硬件与安装) · [技术要点](#技术要点) · [已知限制](#已知限制) · [许可](#数据来源与许可)
 
 ---
 
@@ -74,6 +83,32 @@ ESP-Mosaico 是一块 480×480 的圆角触摸屏，竖着握在手里正好像�
 - 资源上限很紧：`ui_apps` 1.5 MiB 装下 969 KB 的 16px 中文字库、394 KB 图像和整套场景；词库（429 KB zlib）压在应用镜像里，启动时解压到 PSRAM。
 - 中文动态文本全部走同一个 16px 全量字库，靠实测字宽表做换行，所以长词、长例句不会断得难看。
 - 有 5 套原生回归：模型/进度 800 组种子会话、设置持久化丢写、顽固词与跳过、遗忘曲线与报表、文本换行 5 万组用例。
+
+## 仓库结构
+
+```
+main/            应用与共享 C 逻辑（UI 状态机、词库、进度、SRS、设置、报表、音频）
+ui/main.json     ESP-GSP 场景（全部页面、控件、绑定）
+ui/img, ui/fonts 处理后的像素资源与字体子集
+pc/              PC 模拟器后端与原生回归
+docs/            验收记录、投稿素材、0.2 发布证据
+firmware/        可下载的 Vibe Mode 0.2 固件
+```
+
+从源码构建：本仓库是应用目录，需要放回 [ESP-Mosaico 工作区](https://github.com/esp-mosaico/esp-mosaico-vibe) 的 `projects/` 下（工作区提供 submodule、CLI 与 pinned ESP-IDF），并换成 0.2 工具链：
+
+```sh
+python mosaico.py project sim --project projects/wordquest --interactive   # PC 预览
+python mosaico.py iris system-update --project projects/wordquest          # 构建并安装
+```
+
+原生回归不需要设备（仓库内的那套是模型/进度，800 组种子会话）：
+
+```sh
+gcc -std=c11 -O2 -I main pc/tests/test_model_progress.c     main/wq_model.c main/wq_progress.c main/wq_settings.c -o t_model && ./t_model
+```
+
+设置持久化、顽固词/跳过、遗忘曲线与报表、文本换行另外四套在开发工作区的 `.agents/analysis/` 下，命令见 `docs/simulator-validation-20261031.md`。
 
 ## 已知限制
 
