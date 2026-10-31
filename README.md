@@ -61,10 +61,12 @@ ESP-Mosaico 是一块 480×480 的圆角触摸屏，竖着握在手里正好像�
 ## 硬件与安装
 
 - 机型：ESP-Mosaico（ESP32-S31，480×480 圆角触摸屏）。社区发布版要求 **Vibe Mode 0.2.0 及以上、v2 产品契约与 ABI 2**。
-- 社区附件使用 `wordquest-v0.2-system-update.irisfw`，由官方 0.2 工具链重新构建，包内含应用、匹配的分区表与 `ui_apps` 资源；不含 Bootloader 或 Vibe Mode 固件。
-- 旧的 `wordquest-system-update.irisfw` 使用 `/v1` schema，不能用于当前社区上传，也不能据其最低版本字段推断 0.2 兼容。
-- 本目录的原开发工作区仍保留 0.1 设备基线；0.2 发布构建与迁移记录见 `docs/release-v02/`。旧设备迁移到 Vibe Mode 0.2 是单独的官方基础固件升级流程，应用包不负责此升级。
+- **下载固件**：[`firmware/wordquest-v0.2-system-update.irisfw`](firmware/wordquest-v0.2-system-update.irisfw) · 2,269,436 字节 · SHA-256 `25d1dac8ddf2c230ffcbbee3400eb21022086b7dd309318c0883e12db8b316c1`（`esp-iris-system-update/0.2`，release 1.0.0，最低 Vibe Mode 0.2.0）。
+- 安装：用 Vibe Mode（0.2 及以上）的系统更新写入，USB 或无线通道都行。包内含应用、匹配的分区表与 `ui_apps` 资源，不含 Bootloader 或 Vibe Mode 固件。
+- 旧的 `/v1` 格式包不能用于当前社区上传，也不能据其最低版本字段推断 0.2 兼容。
+- 0.2 发布构建与迁移记录见 `docs/release-v02/`。旧设备迁移到 Vibe Mode 0.2 是单独的官方基础固件升级流程，应用包不负责此升级。
 - 界面与学习流程已有 0.1 真机和共享 C 模拟器证据；0.2 发布包的构建/校验结果以 `docs/release-v02/` 记录为准，尚未在 0.2 设备上实测。
+- 也可以从源码重建：`python mosaico.py iris system-update --project projects/wordquest`（需 0.2 工具链）。
 
 ## 技术要点
 
