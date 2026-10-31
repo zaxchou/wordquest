@@ -1,0 +1,131 @@
+[
+  {
+    "id": "camp-home",
+    "label": "营地主页",
+    "file": "camp-home.png",
+    "target_width": 480,
+    "target_height": 480,
+    "source_width": 1254,
+    "source_height": 1254,
+    "selected_variant": 3,
+    "selection_reason": "主角轮廓清楚，人物与告示牌分离，告示牌和按钮内部干净。",
+    "text_content": "none",
+    "visual_text_check": "passed: no rendered labels, numerals or placeholder text",
+    "text_safe_regions": [
+      {
+        "id": "notice_text",
+        "x": 274,
+        "y": 110,
+        "width": 170,
+        "height": 190
+      },
+      {
+        "id": "button_label",
+        "x": 86,
+        "y": 396,
+        "width": 308,
+        "height": 28
+      }
+    ],
+    "sha256": "10dfc635e5cb7e61e6f83696ce426e634a4cb7f8cae49b22a36f1eb6569549db",
+    "candidates": [
+      {
+        "variant": 1,
+        "file": "candidates/camp-home-v01.png",
+        "bytes": 2057162,
+        "sha256": "aade69eb0a85e9af78054531882f9cbb14e7980505a95cc6073ef1388f8eb14e",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-2bca761d-66a7-4324-8fe5-fcb2d1ad8999.png"
+      },
+      {
+        "variant": 2,
+        "file": "candidates/camp-home-v02.png",
+        "bytes": 2023721,
+        "sha256": "c6a8ae2a43b56cf85b5b67987035f958228e6f8b709eec9103a8c82da10d9f4c",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-f6c1ceb4-268c-4c2e-893f-9cec829fcbac.png"
+      },
+      {
+        "variant": 3,
+        "file": "candidates/camp-home-v03.png",
+        "bytes": 1948018,
+        "sha256": "10dfc635e5cb7e61e6f83696ce426e634a4cb7f8cae49b22a36f1eb6569549db",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-e3d45a18-8e5a-4a2b-a752-51a2197f7881.png"
+      },
+      {
+        "variant": 4,
+        "file": "candidates/camp-home-v04.png",
+        "bytes": 2044373,
+        "sha256": "b940393fe8518eca54bab57ee7ca206dcaf1962ef42251a367cce2de8fa4103a",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-2d0a4392-ea5e-4bbe-a35a-2ae0842d7223.png"
+      }
+    ],
+    "generator": "built-in image_gen",
+    "processing": "unaltered high-resolution generated source; runtime text and resampling pending"
+  },
+  {
+    "id": "boss-victory",
+    "label": "Boss 击败结算页",
+    "file": "boss-victory.png",
+    "target_width": 480,
+    "target_height": 480,
+    "source_width": 1254,
+    "source_height": 1254,
+    "selected_variant": 3,
+    "selection_reason": "背身举剑、败北 Boss 与宝箱关系清楚，战报内衬平整，按钮留白完整。",
+    "text_content": "none",
+    "visual_text_check": "passed: no rendered labels, numerals or placeholder text",
+    "text_safe_regions": [
+      {
+        "id": "report_three_rows",
+        "x": 50,
+        "y": 300,
+        "width": 380,
+        "height": 76,
+        "suggested_baselines": [
+          316,
+          340,
+          364
+        ]
+      },
+      {
+        "id": "button_label",
+        "x": 100,
+        "y": 414,
+        "width": 280,
+        "height": 24
+      }
+    ],
+    "sha256": "ce3d4b223fbad02def5e21725c13c5fac0695f5ab15fb748d614877a1cf7cdf6",
+    "candidates": [
+      {
+        "variant": 1,
+        "file": "candidates/boss-victory-v01.png",
+        "bytes": 2113199,
+        "sha256": "665b124f8c3db638cd1d7f57c4b048881e8710a07ae14a2507cc49a0d3d0c60d",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-a408f395-ff7b-4e7a-a61a-f828077c221e.png"
+      },
+      {
+        "variant": 2,
+        "file": "candidates/boss-victory-v02.png",
+        "bytes": 2156383,
+        "sha256": "498b11e3af4e3249da8dacfe2bf29b12609d1ea360b553053ef20a87f91389f8",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-868eaf2a-b875-4c64-899e-79d803bc7925.png"
+      },
+      {
+        "variant": 3,
+        "file": "candidates/boss-victory-v03.png",
+        "bytes": 2113122,
+        "sha256": "ce3d4b223fbad02def5e21725c13c5fac0695f5ab15fb748d614877a1cf7cdf6",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-2bb347a1-520a-44c9-b8a8-4b5b975e9e57.png"
+      },
+      {
+        "variant": 4,
+        "file": "candidates/boss-victory-v04.png",
+        "bytes": 2045194,
+        "sha256": "893ed696d97fc172e50c59eb78bdd13c85a0eb468e3c7e8a6e25df7e75d0ac5d",
+        "original_source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-f801b89d-ac2e-40c2-8401-b6dcf99336aa.png"
+      }
+    ],
+    "generator": "built-in image_gen",
+    "processing": "unaltered high-resolution generated source; runtime text and resampling pending"
+  }
+]

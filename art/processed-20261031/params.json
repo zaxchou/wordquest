@@ -1,0 +1,79 @@
+{
+  "player": {
+    "canvas_w": 99,
+    "canvas_h": 116,
+    "scale": 0.1002,
+    "rect_x": 23,
+    "rect_y": 34
+  },
+  "boss": {
+    "canvas_w": 144,
+    "canvas_h": 141,
+    "scale": 0.12238,
+    "rect_x": 335,
+    "rect_y": 9
+  },
+  "embedded": [
+    "badge_forest.png",
+    "battle_bg.png",
+    "beam_1.png",
+    "beam_2.png",
+    "boss_1.png",
+    "boss_2.png",
+    "boss_3.png",
+    "boss_4.png",
+    "boss_5.png",
+    "chest_closed.png",
+    "chest_open.png",
+    "illo_err.png",
+    "illo_fix.png",
+    "illo_ride.png",
+    "page_home.png",
+    "page_victory.png",
+    "player_1.png",
+    "player_2.png",
+    "player_3.png",
+    "player_4.png",
+    "player_5.png",
+    "player_6.png",
+    "player_7.png",
+    "slash_1.png",
+    "slash_2.png",
+    "slash_3.png",
+    "star_1.png",
+    "star_2.png"
+  ],
+  "archive_only": [
+    {
+      "name": "bg_cave.png",
+      "band_top": 765
+    },
+    {
+      "name": "bg_snow.png",
+      "band_top": 820
+    }
+  ],
+  "battle_bg_patch": {
+    "player_region": [
+      130,
+      110,
+      430,
+      375
+    ],
+    "player_donor": [
+      430,
+      110,
+      730,
+      375
+    ],
+    "hud_boss_band_tiles_x": [
+      640,
+      830,
+      1090
+    ],
+    "boss_donor_flip_x": [
+      430,
+      690
+    ]
+  }
+}

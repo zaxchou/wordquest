@@ -1,0 +1,59 @@
+{
+  "coordinate_system": {
+    "width": 480,
+    "height": 480,
+    "unit": "logical pixels",
+    "note": "图像缩放到480×480后使用；为目视检查后的保守文字内边界，实际字体需在设备或模拟器再校对。"
+  },
+  "pages": [
+    {
+      "id": "camp-home",
+      "label": "营地主页",
+      "selected_variant": 3,
+      "reason": "主角轮廓清楚，人物与告示牌分离，告示牌和按钮内部干净。",
+      "text_safe_regions": [
+        {
+          "id": "notice_text",
+          "x": 274,
+          "y": 110,
+          "width": 170,
+          "height": 190
+        },
+        {
+          "id": "button_label",
+          "x": 86,
+          "y": 396,
+          "width": 308,
+          "height": 28
+        }
+      ]
+    },
+    {
+      "id": "boss-victory",
+      "label": "Boss 击败结算页",
+      "selected_variant": 3,
+      "reason": "背身举剑、败北 Boss 与宝箱关系清楚，战报内衬平整，按钮留白完整。",
+      "text_safe_regions": [
+        {
+          "id": "report_three_rows",
+          "x": 50,
+          "y": 300,
+          "width": 380,
+          "height": 76,
+          "suggested_baselines": [
+            316,
+            340,
+            364
+          ]
+        },
+        {
+          "id": "button_label",
+          "x": 100,
+          "y": 414,
+          "width": 280,
+          "height": 24
+        }
+      ]
+    }
+  ]
+}

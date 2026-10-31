@@ -1,0 +1,50 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WordQuest 无文字页面</title><style>body{margin:0;background:#edf0e7;color:#193b2b;font:16px/1.6 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:32px 24px}h1{margin:0}section{margin:40px 0}.selected{width:100%;max-width:480px;display:block;image-rendering:pixelated}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.grid img{width:100%;display:block;image-rendering:pixelated}a{color:#256147}.meta{font-size:14px;color:#53665b}.box{padding:16px;background:#fffdf5;border-radius:8px}.selected-wrap{display:flex;gap:24px;align-items:start;flex-wrap:wrap}.info{max-width:420px}pre{overflow:auto;font-size:12px}figure{margin:0}figcaption{font-size:13px;margin:8px 0}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}} </style><main><h1>WordQuest 无文字页面底图</h1><p>营地主页与 Boss 击败结算页，各 4 张独立候选，各选 1 张。图内无等级、统计、按钮字或占位文字。</p><p><a href="README.md">说明</a> · <a href="manifest.json">素材清单</a> · <a href="selection.json">480×480 文字区域</a> · <a href="prompts.json">生成提示词</a></p>
+<section><h2>营地主页 · 选定 v3</h2><div class="selected-wrap"><a href="camp-home.png"><img class="selected" src="camp-home.png" alt="营地主页"></a><div class="info box"><p>主角轮廓清楚，人物与告示牌分离，告示牌和按钮内部干净。</p><p class="meta">目标 480×480 · 原图 1254×1254。文字框坐标见下方，缩放后需按实际字体核对。</p><pre>[
+  {
+    &quot;id&quot;: &quot;notice_text&quot;,
+    &quot;x&quot;: 274,
+    &quot;y&quot;: 110,
+    &quot;width&quot;: 170,
+    &quot;height&quot;: 190
+  },
+  {
+    &quot;id&quot;: &quot;button_label&quot;,
+    &quot;x&quot;: 86,
+    &quot;y&quot;: 396,
+    &quot;width&quot;: 308,
+    &quot;height&quot;: 28
+  }
+]</pre></div></div><h3>全部候选</h3><div class="grid">
+<figure><a href="candidates/camp-home-v01.png"><img loading="lazy" src="candidates/camp-home-v01.png" alt="候选1"></a><figcaption>v1</figcaption></figure>
+<figure><a href="candidates/camp-home-v02.png"><img loading="lazy" src="candidates/camp-home-v02.png" alt="候选2"></a><figcaption>v2</figcaption></figure>
+<figure><a href="candidates/camp-home-v03.png"><img loading="lazy" src="candidates/camp-home-v03.png" alt="候选3"></a><figcaption>v3</figcaption></figure>
+<figure><a href="candidates/camp-home-v04.png"><img loading="lazy" src="candidates/camp-home-v04.png" alt="候选4"></a><figcaption>v4</figcaption></figure>
+</div></section>
+<section><h2>Boss 击败结算页 · 选定 v3</h2><div class="selected-wrap"><a href="boss-victory.png"><img class="selected" src="boss-victory.png" alt="Boss 击败结算页"></a><div class="info box"><p>背身举剑、败北 Boss 与宝箱关系清楚，战报内衬平整，按钮留白完整。</p><p class="meta">目标 480×480 · 原图 1254×1254。文字框坐标见下方，缩放后需按实际字体核对。</p><pre>[
+  {
+    &quot;id&quot;: &quot;report_three_rows&quot;,
+    &quot;x&quot;: 50,
+    &quot;y&quot;: 300,
+    &quot;width&quot;: 380,
+    &quot;height&quot;: 76,
+    &quot;suggested_baselines&quot;: [
+      316,
+      340,
+      364
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;button_label&quot;,
+    &quot;x&quot;: 100,
+    &quot;y&quot;: 414,
+    &quot;width&quot;: 280,
+    &quot;height&quot;: 24
+  }
+]</pre></div></div><h3>全部候选</h3><div class="grid">
+<figure><a href="candidates/boss-victory-v01.png"><img loading="lazy" src="candidates/boss-victory-v01.png" alt="候选1"></a><figcaption>v1</figcaption></figure>
+<figure><a href="candidates/boss-victory-v02.png"><img loading="lazy" src="candidates/boss-victory-v02.png" alt="候选2"></a><figcaption>v2</figcaption></figure>
+<figure><a href="candidates/boss-victory-v03.png"><img loading="lazy" src="candidates/boss-victory-v03.png" alt="候选3"></a><figcaption>v3</figcaption></figure>
+<figure><a href="candidates/boss-victory-v04.png"><img loading="lazy" src="candidates/boss-victory-v04.png" alt="候选4"></a><figcaption>v4</figcaption></figure>
+</div></section>
+</main></html>
+

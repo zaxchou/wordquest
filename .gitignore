@@ -1,0 +1,16 @@
+# Build artifacts
+build/
+build-sim/
+managed_components/
+dependencies.lock
+.codex-runs/
+sdkconfig
+sdkconfig.old
+
+# Large AI generation candidates (selected assets are in processed-20261031)
+art/generated-20261030/
+art/pages-20261031/candidates/
+
+# OS
+.DS_Store
+Thumbs.db
