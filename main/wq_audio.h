@@ -35,3 +35,4 @@ void wq_audio_play(wq_audio_effect_t effect);
 // Switch the looping background track; takes effect at the next render
 // chunk (~40 ms). WQ_BGM_NONE silences the music.
 void wq_audio_bgm(wq_bgm_t bgm);
+

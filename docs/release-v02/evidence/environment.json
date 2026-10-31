@@ -1,0 +1,19 @@
+{
+  "utils": {
+    "path": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\submodule\\esp-mosaico-utils",
+    "commit": "be151ae047014e79a9c7ae0092dd203844499003",
+    "status": ""
+  },
+  "bsp": {
+    "path": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\submodule\\esp-mosaico-bsp",
+    "commit": "a2c985ad698b3f04a21c63e006b43e7e948bc1d7",
+    "status": "M components/mosaico_module_interact/mosaico_module_interact.c"
+  },
+  "idf": {
+    "path": "C:\\Users\\zeroz\\esp\\esp-idf",
+    "commit": "7b9cc1ac79f865983f59bb8ff3ff43eb74ff1dbe",
+    "status": ""
+  },
+  "gspc_version": "gspc 0.7.0",
+  "gsp_manifest": "dependencies:\n  espressif/esp_display_present:\n    registry_url: https://components.espressif.com\n    version: ^1.0.2\n  espressif/esp_lcd_touch:\n    public: true\n    registry_url: https://components.espressif.com\n    version: ^1\n  espressif/esp_new_jpeg:\n    registry_url: https://components.espressif.com\n    version: 1.*\n  espressif/freetype:\n    registry_url: https://components.espressif.com\n    version: ^2.14.2\n  idf: '>=6.0'\ndescription: Espressif Graphics Scene Processor, an ahead-of-time compiled UI framework\n  for ESP-IDF.\nfiles:\n  exclude:\n  - src/**/*\n  - priv_include/**/*\n  - components/**/*\n  - artifacts/**/*\n  - .gitlab-ci.yml\n  - .pre-commit-config.yaml\n  - .gitattributes\n  - .gitignore\n  - .gitmodules\n  - examples/**/*\n  - examples/scenarios/*/preview*.png\n  - examples/scenarios/*/preview*.gif\n  - examples/scenarios/*/scenes/assets/*.gif\n  - examples/scenarios/*/scenes/assets/*.png\n  - examples/scenarios/*/scenes/assets/*.svg\n  - formats/**/*\n  - config/**/*\n  - ci/**/*\n  - dev_docs/**/*\n  - .ci-build/**/*\n  - build/**/*\n  - build-*/**/*\n  - .pytest_cache/**/*\n  - '**/.pytest_cache/**/*'\n  - '**/__pycache__/**'\n  - '**/*.pyc'\n  - .codewhale/**/*\n  - .vscode/**/*\n  - tools/**/*\n  - tools/sim_bridge/tests/**/*\n  - skills/**/*\n  - docs/_generator/**/*\n  - docs/en/reference/binary-format.md\n  - docs/zh-Hans/reference/binary-format.md\n  - prebuilt/sim/**/*\n  - adapters/headless/**/*\n  - adapters/sdl/**/*\n  - adapters/web/**/*\n  - include/esp_gsp_sim.h\n  - include/gsp/sim/**/*\n  - cmake/esp_gsp_project_config_host.c.in\n  - cmake/gsp_portable_targets.cmake\n  include:\n  - README_zh.md\n  - .gspc_version\n  - cmake/gsp_example_assets.cmake\n  - cmake/gsp_fetch_example_assets.cmake\n  - examples/README.md\n  - examples/usage/hello_world/**/*\n  - examples/usage/external_assets/**/*\n  - examples/usage/effects/**/*\n  - examples/scenarios/**/*\n  - examples/common/**/*\n  - examples/performance/benchmark/**/*\n  - examples/usage/widgets/**/*\n  - examples/usage/sim_bridge_media/**/*\n  - tools/sim_bridge/build.py\n  - tools/sim_bridge/run.py\n  - tools/sim_bridge/rpc_client.py\n  - tools/sim_bridge/protocol.h\n  - tools/sim_bridge/CMakeLists.txt\n  - tools/sim_bridge/README.md\n  - tools/sim_bridge/src/*.c\n  - tools/sim_bridge/src/*.h\n  - tools/sim_bridge/include/*.h\n  - tools/sim_bridge/profiles/*.yaml\nissues: https://github.com/espressif/esp-gsp/issues\nrepository: git://github.com/espressif/esp-gsp.git\nrepository_info:\n  commit_sha: 472207a3d4892706a16f6bafee6c6e0384645d85\n  path: .\ntargets:\n- esp32c3\n- esp32s3\n- esp32p4\n- esp32s31\n- esp32c5\n- esp32c6\nurl: https://github.com/espressif/esp-gsp\nversion: 1.5.1\n"
+}

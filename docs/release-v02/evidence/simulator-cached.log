@@ -1,0 +1,67 @@
+-- sim_bridge: using gspc 0.7.0 from GSPC_EXECUTABLE CMake variable
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim
+[1/3] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\zeroz\esp\work\wordquest-v02-release\projects\wordquest\build-sim && C:\Users\zeroz\esp\tools\w64devkit\bin\cmake.exe -E make_directory C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets && C:\Users\zeroz\esp\tools\gspc-0.7.0\gspc.exe pack C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json --deployable --profile C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/managed_components/espressif__esp-gsp/tools/sim_bridge/profiles/rgb565.yaml --gen-dir C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets --api-header C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets/bundle_gsp.h --symbol bridge_bundle -o C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets/app.gspb"
+[
+  {
+    "code": "GSPC-RS-FONT-CHARSET",
+    "message": "$.objects[65]: \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @16px: runtime-bound text has no font_charset; using printable ASCII",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": "$.objects[65].font_charset",
+    "objectIndex": 65,
+    "property": "font_charset",
+    "range": null,
+    "suggestions": []
+  },
+  {
+    "code": "GSPC-RS-FONT-CHARSET",
+    "message": "$.objects[111]: \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @18px: runtime-bound text has no font_charset; using printable ASCII",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": "$.objects[111].font_charset",
+    "objectIndex": 111,
+    "property": "font_charset",
+    "range": null,
+    "suggestions": []
+  },
+  {
+    "code": "GSPC-RS-FONT-MISSING",
+    "message": "font \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @18px is missing 13 codepoint(s): U+0023, U+002A, U+003C, U+003E, U+0040, U+005C, U+005E, U+005F, U+0060, U+007B, U+007C, U+007D, U+007E",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": null,
+    "objectIndex": null,
+    "property": null,
+    "range": null,
+    "suggestions": []
+  },
+  {
+    "code": "GSPC-RS-FONT-MISSING",
+    "message": "font \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @16px is missing 13 codepoint(s): U+0023, U+002A, U+003C, U+003E, U+0040, U+005C, U+005E, U+005F, U+0060, U+007B, U+007C, U+007D, U+007E",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": null,
+    "objectIndex": null,
+    "property": null,
+    "range": null,
+    "suggestions": []
+  }
+]
+gspc: resource-usage bundle_bytes=1889168 bundle=1.8MiB scenes=1 animation_frame_peak_bytes=0 animation_frame_peak=0B animation_frame_budget_bytes=2097152 image_cache_default=enabled image_cache_budget_bytes=0 reports=C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets output=C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets/app.gspb
+[2/3] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wordquest_ui.c.obj
+[3/3] Linking C executable wordquest_backend.exe
+I (gsp_deployable): Opened deployable GSPB: scenes=1 content=0xeeeaf9e1
+W (gsp_context): Image cache smaller than the startup set; the excess decodes lazily: entries=19/19 bytes=2169600/2097152
+2026-10-31T19:31:43.310863Z  INFO application backend TCP endpoint listening endpoint=127.0.0.1:8685
+2026-10-31T19:31:43.310939Z  INFO application backend endpoint listening endpoint="tcp://127.0.0.1:0"
+2026-10-31T19:31:43.310958Z  INFO API control channel not enabled (use --api-listen or --api-enable)
+E wq_dict: book 0: CET-4 (3739 words)
+E wq_dict: book 1: CET-6 (2345 words)
+E wq_ui: restored: book=0 daily=10 level=1 streak=0
+E wq_ui: settings verified on boot

@@ -1,0 +1,29 @@
+[
+  [
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\.venv-iris\\Scripts\\python.exe",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\submodule\\esp-mosaico-utils\\mosaico-tools\\tools\\prepare_system_update.py",
+    "--partition-csv",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\partitions.csv",
+    "--partition-table",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\partition_table\\partition-table.bin",
+    "--application",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\wordquest.bin",
+    "--ui-apps",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\ui_apps.bin",
+    "--stage-dir",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\system-update",
+    "--release",
+    "1.0.0"
+  ],
+  [
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\.venv-iris\\Scripts\\python.exe",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\submodule\\esp-mosaico-utils\\ESP-Iris\\components\\esp_iris\\tools\\esp_iris.py",
+    "bundle",
+    "build",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\system-update\\manifest.json",
+    "--component-root",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\system-update",
+    "--output",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\wordquest-system-update.irisfw"
+  ]
+]

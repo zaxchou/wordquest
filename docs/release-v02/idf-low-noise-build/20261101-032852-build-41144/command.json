@@ -1,0 +1,9 @@
+{
+  "action": "build",
+  "project": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest",
+  "idf_path": "C:\\Users\\zeroz\\esp\\esp-idf",
+  "idf_arguments": [
+    "--preview",
+    "build"
+  ]
+}

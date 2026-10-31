@@ -1,0 +1,10 @@
+{
+  "action": "bundle",
+  "project": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest",
+  "idf_path": "C:\\Users\\zeroz\\esp\\esp-idf",
+  "idf_arguments": [
+    "-D",
+    "ESP_IRIS_PYTHON=C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\.venv-iris\\Scripts\\python.exe",
+    "system-update-bundle"
+  ]
+}

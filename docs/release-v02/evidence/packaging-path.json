@@ -1,0 +1,7 @@
+{
+  "status": "stopped_by_agent",
+  "reason": "Setting ESP_IRIS_PYTHON caused a redundant full recompile after the successful low-noise build. Stopped only this task; used the identical two official exporter commands from cmake/system_update.cmake against the successful build artifacts.",
+  "successful_build_run": "20261101-032852-build-41144",
+  "aborted_bundle_run": "20261101-033818-bundle-43380",
+  "packaging_commands": "package-commands.json"
+}

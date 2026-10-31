@@ -54,6 +54,8 @@ static const wq_sfx_t *const WQ_EFFECTS[WQ_AUDIO_COUNT] = {
 // Background tracks: MIDI-style note tables, two voices (melody + bass).
 // Note = MIDI number (0 = rest), steps = length in 16th notes.
 // freq(midi) = 440 * 2^((midi-69)/12). Timing runs in samples, not ms.
+// The note tables, step lengths, amplitudes and waveforms are the values that
+// were tuned by ear earlier; keep them together when editing.
 // ---------------------------------------------------------------------------
 
 typedef struct
@@ -78,57 +80,16 @@ typedef struct
     uint8_t bass_step_mult;   // bass note length = step_ms * this
     float melody_amp, bass_amp;
     wq_wave_t melody_wave, bass_wave;
-    float lpf_alpha; // pulse low-pass coefficient (1 = off)
 } wq_bgm_track_t;
 
 typedef struct
 {
-    size_t note;        // current note index
-    int32_t left;       // samples remaining in the note
-    int32_t total;      // samples of the whole note (for the envelope)
-    float freq;         // 0 = rest
-    float phase;
-    float lpf_state;
+    size_t index;    // current note
+    size_t samples;  // samples rendered into the current note
+    size_t length;   // samples this note lasts
+    float phase;     // oscillator phase in [0, 1)
+    float state;     // one-pole state for the pulse wave
 } wq_voice_state_t;
-
-// Camp theme: gentle C-major stroll over a I-vi-IV-V bass, triangle waves.
-static const wq_note_t WQ_HOME_MELODY[] = {
-    {64, 2}, {67, 2}, {72, 2}, {67, 2}, {69, 2}, {67, 2}, {64, 2}, {62, 2},
-    {64, 2}, {67, 2}, {72, 2}, {74, 2}, {72, 2}, {67, 2}, {60, 2}, {0, 2},
-};
-static const wq_note_t WQ_HOME_BASS[] = {
-    {48, 2}, {43, 2}, {45, 2}, {52, 2},
-    {41, 2}, {48, 2}, {43, 2}, {48, 2},
-};
-
-// Battle theme: driving A-minor run, bass on Am/Am/F/G.
-static const wq_note_t WQ_BATTLE_MELODY[] = {
-    {69, 1}, {69, 1}, {72, 1}, {69, 1}, {76, 1}, {72, 1}, {69, 1}, {67, 1},
-    {65, 1}, {65, 1}, {69, 1}, {72, 1}, {71, 1}, {72, 1}, {69, 1}, {0, 1},
-};
-static const wq_note_t WQ_BATTLE_BASS[] = {
-    {45, 2}, {45, 2}, {45, 2}, {45, 2},
-    {41, 2}, {41, 2}, {43, 2}, {43, 2},
-};
-
-static const wq_bgm_track_t WQ_TRACKS[] = {
-    [WQ_BGM_HOME] = {
-        .melody = WQ_HOME_MELODY, .melody_count = 16,
-        .bass = WQ_HOME_BASS, .bass_count = 8,
-        .step_ms = 300, .bass_step_mult = 2,
-        .melody_amp = 0.15f, .bass_amp = 0.11f,
-        .melody_wave = WQ_WAVE_TRIANGLE, .bass_wave = WQ_WAVE_TRIANGLE,
-        .lpf_alpha = 1.0f,
-    },
-    [WQ_BGM_BATTLE] = {
-        .melody = WQ_BATTLE_MELODY, .melody_count = 16,
-        .bass = WQ_BATTLE_BASS, .bass_count = 8,
-        .step_ms = 160, .bass_step_mult = 2,
-        .melody_amp = 0.14f, .bass_amp = 0.10f,
-        .melody_wave = WQ_WAVE_PULSE, .bass_wave = WQ_WAVE_TRIANGLE,
-        .lpf_alpha = 0.45f,
-    },
-};
 
 typedef struct
 {
@@ -137,67 +98,98 @@ typedef struct
     wq_voice_state_t bass;
 } wq_bgm_state_t;
 
-static QueueHandle_t s_queue;
+// Camp theme: gentle, slow, mostly stepwise motion.
+static const wq_note_t WQ_HOME_MELODY[] = {
+    {64, 2}, {67, 2}, {72, 2}, {67, 2}, {69, 2}, {67, 2}, {64, 2}, {62, 2},
+    {64, 2}, {67, 2}, {72, 2}, {74, 2}, {72, 2}, {67, 2}, {60, 2}, {0, 2},
+};
+static const wq_note_t WQ_HOME_BASS[] = {
+    {48, 2}, {43, 2}, {45, 2}, {52, 2}, {41, 2}, {48, 2}, {43, 2}, {48, 2},
+};
+// Battle theme: faster, denser, pulse lead over a driving bass.
+static const wq_note_t WQ_BATTLE_MELODY[] = {
+    {69, 1}, {69, 1}, {72, 1}, {69, 1}, {76, 1}, {72, 1}, {69, 1}, {67, 1},
+    {65, 1}, {65, 1}, {69, 1}, {72, 1}, {71, 1}, {72, 1}, {69, 1}, {0, 1},
+};
+static const wq_note_t WQ_BATTLE_BASS[] = {
+    {45, 2}, {45, 2}, {45, 2}, {45, 2}, {41, 2}, {41, 2}, {43, 2}, {43, 2},
+};
+
+static const wq_bgm_track_t WQ_TRACKS[] = {
+    [WQ_BGM_NONE] = {0},
+    [WQ_BGM_HOME] = {
+        WQ_HOME_MELODY, sizeof(WQ_HOME_MELODY) / sizeof(WQ_HOME_MELODY[0]),
+        WQ_HOME_BASS, sizeof(WQ_HOME_BASS) / sizeof(WQ_HOME_BASS[0]),
+        300, 2, 0.15f, 0.11f, WQ_WAVE_TRIANGLE, WQ_WAVE_TRIANGLE,
+    },
+    [WQ_BGM_BATTLE] = {
+        WQ_BATTLE_MELODY, sizeof(WQ_BATTLE_MELODY) / sizeof(WQ_BATTLE_MELODY[0]),
+        WQ_BATTLE_BASS, sizeof(WQ_BATTLE_BASS) / sizeof(WQ_BATTLE_BASS[0]),
+        160, 2, 0.14f, 0.10f, WQ_WAVE_PULSE, WQ_WAVE_TRIANGLE,
+    },
+};
+
 static esp_codec_dev_handle_t s_speaker;
-static volatile wq_bgm_state_t s_bgm = {.track = WQ_BGM_NONE};
+static QueueHandle_t s_queue;
+static wq_bgm_state_t s_bgm;
 
 static float midi_freq(uint8_t midi)
 {
-    return 440.0f * powf(2.0f, ((int)midi - 69) / 12.0f);
+    return 440.0f * powf(2.0f, ((float)midi - 69.0f) / 12.0f);
 }
 
-// Start the next note of a voice (loops at the end of the table).
-static void voice_next_note(wq_voice_state_t *v, const wq_note_t *notes,
-                            size_t count, uint32_t note_samples)
+static size_t note_samples(const wq_bgm_track_t *track, const wq_note_t *note,
+                           bool bass)
 {
-    v->note = (v->note + 1) % count;
-    const wq_note_t *note = &notes[v->note];
-    v->total = (int32_t)note->steps * (int32_t)note_samples;
-    v->left = v->total;
-    v->freq = note->midi ? midi_freq(note->midi) : 0.0f;
-    v->phase = 0.0f;
+    const unsigned ms = bass ? (unsigned)track->step_ms * track->bass_step_mult
+                             : (unsigned)track->step_ms;
+    size_t n = (size_t)note->steps * ms * WQ_AUDIO_SAMPLE_RATE / 1000;
+    return n < 32 ? 32 : n;
 }
 
-// One sample of a voice with a soft attack/release envelope.
+// One sample of a note: triangle or low-passed pulse, with a short attack and a
+// release that ends before the note does, so repeats stay articulated.
 static float voice_sample(wq_voice_state_t *v, const wq_note_t *notes,
                           size_t count, const wq_bgm_track_t *track,
                           wq_wave_t wave, float amp)
 {
-    if (v->left <= 0) {
-        voice_next_note(v, notes, count, track->step_ms * 8); // 1 step = ms*8
+    if (count == 0) return 0.0f;
+    if (v->length == 0 || v->samples >= v->length) {
+        if (v->length != 0) v->index = (v->index + 1) % count;
+        v->samples = 0;
+        v->length = note_samples(track, &notes[v->index], notes == track->bass);
     }
-    if (--v->left <= 0) {
-        voice_next_note(v, notes, count, track->step_ms * 8);
-    }
-    if (v->freq <= 0.0f) {
-        return 0.0f;
-    }
+    const wq_note_t *note = &notes[v->index];
 
-    v->phase += v->freq / WQ_AUDIO_SAMPLE_RATE;
-    if (v->phase >= 1.0f) {
-        v->phase -= 1.0f;
-    }
+    float out = 0.0f;
+    if (note->midi != 0) {
+        v->phase += midi_freq(note->midi) / (float)WQ_AUDIO_SAMPLE_RATE;
+        if (v->phase >= 1.0f) v->phase -= 1.0f;
 
-    float v_out;
-    if (wave == WQ_WAVE_TRIANGLE) {
-        v_out = 4.0f * fabsf(v->phase - 0.5f) - 1.0f; // -1..1 triangle
-    } else {
-        const float raw = (v->phase < 0.5f) ? 1.0f : -1.0f;
-        v->lpf_state += track->lpf_alpha * (raw - v->lpf_state);
-        v_out = v->lpf_state;
-    }
+        float raw;
+        if (wave == WQ_WAVE_TRIANGLE) {
+            const float t = v->phase;
+            raw = 4.0f * (t < 0.5f ? t : 1.0f - t) - 1.0f;
+        } else {
+            raw = v->phase < 0.5f ? 1.0f : -1.0f;
+            v->state += (raw - v->state) * 0.18f; // one-pole low-pass
+            raw = v->state * 2.0f;
+        }
 
-    // per-note envelope: quick attack, gentle release at the tail
-    const float attack = (v->total / 8 > 24) ? 24.0f : (float)(v->total / 8);
-    const float release = (float)(v->total / 4);
-    const float pos = (float)(v->total - v->left);
-    float env = 1.0f;
-    if (pos < attack) {
-        env = pos / attack;
-    } else if (v->left < release) {
-        env = (float)v->left / release;
+        // Envelope: 12 ms attack, release over the last 30% of the note.
+        const size_t attack = WQ_AUDIO_SAMPLE_RATE * 12 / 1000;
+        const size_t release = v->length * 3 / 10;
+        float env = 1.0f;
+        if (v->samples < attack) {
+            env = (float)v->samples / (float)attack;
+        } else if (v->length > release && v->samples + release >= v->length) {
+            env = (float)(v->length - v->samples) / (float)release;
+            if (env > 1.0f) env = 1.0f;
+        }
+        out = raw * env * amp;
     }
-    return v_out * env * amp;
+    ++v->samples;
+    return out;
 }
 
 static void player_task(void *arg)

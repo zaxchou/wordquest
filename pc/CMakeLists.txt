@@ -21,6 +21,6 @@ endif()
 
 add_subdirectory("${ESP_GSP_COMPONENT_DIR}/tools/sim_bridge" sim_bridge)
 gsp_add_backend(wordquest_backend
-    SOURCES ../main/wordquest_ui.c ../main/wq_model.c ../main/wq_audio.c ../main/wq_dict.c ../main/wq_progress.c ../main/miniz_tinfl.c platform_pc.c
+    SOURCES ../main/wordquest_ui.c ../main/wq_model.c ../main/wq_audio.c ../main/wq_dict.c ../main/wq_progress.c ../main/wq_settings.c ../main/wq_stats.c ../main/miniz_tinfl.c platform_pc.c
     INCLUDE_DIRECTORIES ../main ../managed_components/espressif__esp_codec_dev/include
     SCENES ../ui/main.json)

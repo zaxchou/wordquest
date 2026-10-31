@@ -1,0 +1,16 @@
+{
+  "validator_revision": "be151ae047014e79a9c7ae0092dd203844499003",
+  "old": {
+    "schema": "esp-iris-system-update/v1",
+    "cli_exit": 2,
+    "cli_error": "unsupported system-update manifest schema",
+    "ideas": "REJECT",
+    "ideas_cause": "unsupported system-update manifest schema"
+  },
+  "new": {
+    "schema": "esp-iris-system-update/0.2",
+    "cli_exit": 0,
+    "ideas": "PASS",
+    "bundle_sha256": "25d1dac8ddf2c230ffcbbee3400eb21022086b7dd309318c0883e12db8b316c1"
+  }
+}

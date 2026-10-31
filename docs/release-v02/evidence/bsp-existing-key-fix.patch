@@ -1,0 +1,66 @@
+diff --git a/components/mosaico_module_interact/mosaico_module_interact.c b/components/mosaico_module_interact/mosaico_module_interact.c
+index a615c4a..fb2519f 100644
+--- a/components/mosaico_module_interact/mosaico_module_interact.c
++++ b/components/mosaico_module_interact/mosaico_module_interact.c
+@@ -528,6 +528,43 @@ static esp_err_t apply_button_mode(mosaico_interact_handle_t handle, mosaico_int
+     return ESP_OK;
+ }
+ 
++/* The pads have no usable internal pull-up: once a key-to-GND press
++ * discharges a pad, a plain input read reports "pressed" for minutes.
++ * Emulate the pull-up: charge the pad through the output driver, then
++ * sample it as a floating input. A held key keeps the pad low against the
++ * brief drive; a released key keeps its charge until the next refresh.
++ * When the first sample reads low, retry once with a longer charge so a
++ * marginal charge cannot latch a released key. */
++static bool read_gpio_key_charged(int io)
++{
++    gpio_config_t charge = {
++        .pin_bit_mask = BIT64(io),
++        .mode = GPIO_MODE_OUTPUT,
++        .pull_up_en = GPIO_PULLUP_DISABLE,
++        .pull_down_en = GPIO_PULLDOWN_DISABLE,
++        .intr_type = GPIO_INTR_DISABLE,
++    };
++    gpio_config_t sample = {
++        .pin_bit_mask = BIT64(io),
++        .mode = GPIO_MODE_INPUT,
++        .pull_up_en = GPIO_PULLUP_DISABLE,
++        .pull_down_en = GPIO_PULLDOWN_DISABLE,
++        .intr_type = GPIO_INTR_DISABLE,
++    };
++    (void)gpio_config(&charge);
++    (void)gpio_set_level(io, 1);
++    esp_rom_delay_us(50);
++    (void)gpio_config(&sample);
++    if (gpio_get_level(io) != 0) {
++        return false;
++    }
++    (void)gpio_config(&charge);
++    (void)gpio_set_level(io, 1);
++    esp_rom_delay_us(500);
++    (void)gpio_config(&sample);
++    return gpio_get_level(io) == 0;
++}
++
+ static void read_keys(mosaico_interact_handle_t handle, bool *key_l, bool *key_r)
+ {
+     if (handle->active_input == MOSAICO_INTERACT_BUTTON_MODE_TOUCH) {
+@@ -543,8 +580,15 @@ static void read_keys(mosaico_interact_handle_t handle, bool *key_l, bool *key_r
+         return;
+     }
+ 
+-    *key_l = gpio_get_level(handle->hardware.key_l_io) == 0;
+-    *key_r = gpio_get_level(handle->hardware.key_r_io) == 0;
++    /* The key pads are touch electrodes with no usable internal pull-up on
++     * this board: once a key-to-GND press discharges a pad, a plain input
++     * read reports "pressed" for minutes. Emulate the pull-up in software:
++     * charge the pad through the output driver, then read the stored charge.
++     * A held key keeps the pad low against the brief drive; a released key
++     * keeps its charge until the next refresh, so releases register within
++     * one poll. */
++    *key_l = read_gpio_key_charged(handle->hardware.key_l_io);
++    *key_r = read_gpio_key_charged(handle->hardware.key_r_io);
+ }
+ 
+ static esp_err_t create_led_strip(mosaico_interact_handle_t handle)

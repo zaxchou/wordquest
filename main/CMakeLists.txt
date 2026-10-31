@@ -1,6 +1,6 @@
 idf_component_register(
     SRCS "main.c" "wordquest_ui.c" "wq_model.c" "board_display.c" "wq_audio.c"
-        "wq_dict.c" "wq_progress.c" "miniz_tinfl.c"
+        "wq_dict.c" "wq_progress.c" "wq_settings.c" "wq_stats.c" "miniz_tinfl.c"
     INCLUDE_DIRS "."
     REQUIRES esp_iris esp-mosaico-bsp esp_mosaico_app_recovery
         esp_mosaico_gsp_bundle esp_mosaico_gsp_iris freertos nvs_flash

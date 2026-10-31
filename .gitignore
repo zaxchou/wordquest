@@ -10,6 +10,14 @@ sdkconfig.old
 # Large AI generation candidates (selected assets are in processed-20261031)
 art/generated-20261030/
 art/pages-20261031/candidates/
+art/scenes-20261031/candidates/
+
+# Release evidence keeps the text record; build images are reproducible locally
+docs/release-v02/evidence/*.elf
+docs/release-v02/evidence/*.map
+docs/release-v02/evidence/*.bin
+docs/release-v02/evidence/*.exe
+docs/release-v02/wordquest-v02-build-source.zip
 
 # OS
 .DS_Store

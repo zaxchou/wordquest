@@ -1,0 +1,12 @@
+IDF LOW-NOISE BUILD DOCTOR
+project: C:\Users\zeroz\esp\work\wordquest-v02-release\projects\wordquest
+idf_path: C:\Users\zeroz\esp\esp-idf
+declared_idf_constraint: >=6.2
+configured_target: esp32s31
+idf_version: 6.2.0
+idf_version_source: tools/cmake/version.cmake
+idf_reported_version: ESP-IDF v6.1-dev-7333-g7b9cc1ac79f
+idf_constraint_satisfied: yes
+target_supported: yes
+idf_revision: 7b9cc1ac79f8
+idf_python: C:\es\.espressif\python_env\idf6.2_py3.12_env\Scripts\python.exe | Python 3.12.10

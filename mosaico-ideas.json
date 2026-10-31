@@ -1,0 +1,39 @@
+{
+  "schema": "mosaico-ideas/project-upload/v1",
+  "project": {
+    "title": "WordQuest 单词冒险 · 在像素营地里打 Boss 背单词",
+    "categories": ["display"],
+    "boards": [],
+    "tags": [
+      "背单词",
+      "英语学习",
+      "像素风",
+      "CET-4",
+      "CET-6",
+      "小游戏",
+      "离线",
+      "ESP-GSP"
+    ],
+    "license": "MIT",
+    "external_links": [
+      {
+        "label": "源码仓库 zaxchou/wordquest",
+        "url": "https://github.com/zaxchou/wordquest",
+        "platform": "github"
+      }
+    ]
+  },
+  "content": {
+    "readme": "README.md",
+    "covers": [
+      "docs/submission/cover.png",
+      "docs/submission/promo-learn-fight-win.png",
+      "docs/submission/promo-features.png"
+    ],
+    "resources": [],
+    "attachments": []
+  },
+  "release": {
+    "changelog": "首发 1.0.0：CET-4（3739）与 CET-6（2345）双词书，学习卡 + 实战选择打 Boss；遗忘曲线 1/3/7 天复习、顽固词本与收藏生词本、每日词量 5/10/15/20、连击打卡与等级；词表浏览支持字母区间、未学/已学/跳过筛选与跳过生僻词；周/月报表；芯片风 BGM 与音效；NVS 校验型持久化，断电不丢进度。"
+  }
+}

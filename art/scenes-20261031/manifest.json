@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-31",
+  "type": "pure scene background; no UI",
+  "selected_scenes": [
+    {
+      "id": "camp-scene",
+      "label": "营地主页纯场景",
+      "file": "camp-scene.png",
+      "selected_variant": 3,
+      "refined": true,
+      "selected_source_file": "refinements/camp-scene-character-scale.png",
+      "selection_reason": "基于营地v3放大主角至约35%画面高度；主角在篝火右侧并面向右，右侧保持深色针叶林。所有区域均为自然场景。",
+      "target_width": 480,
+      "target_height": 480,
+      "source_width": 1254,
+      "source_height": 1254,
+      "sha256": "31dce5dad92a6b9cb0d00dbf00269da889b0ac104575dc719748bc731b7f8485",
+      "ui_elements_present": false,
+      "text_present": false,
+      "manual_visual_review": "passed: no signboard, panel, button, decorative frame, text or UI icon",
+      "generator": "built-in image_gen",
+      "processing": "unaltered generated source; runtime scaling and UI drawing pending"
+    },
+    {
+      "id": "victory-scene",
+      "label": "结算页纯场景",
+      "file": "victory-scene.png",
+      "selected_variant": 4,
+      "refined": false,
+      "selected_source_file": "candidates/victory-scene-v04.png",
+      "selection_reason": "背身举剑、发光宝箱和败北Boss清楚，角色完整入画，底部连续草地和灌木较暗，庆祝光效有节制。",
+      "target_width": 480,
+      "target_height": 480,
+      "source_width": 1254,
+      "source_height": 1254,
+      "sha256": "2419f902ab6ee24615d56fc4cff3ed8ddbec472cd28f4d148030bbcc93d4358f",
+      "ui_elements_present": false,
+      "text_present": false,
+      "manual_visual_review": "passed: no signboard, panel, button, decorative frame, text or UI icon",
+      "generator": "built-in image_gen",
+      "processing": "unaltered generated source; runtime scaling and UI drawing pending"
+    }
+  ],
+  "generated_sources": [
+    {
+      "file": "candidates/camp-scene-v01.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-123139ad-e66d-4f12-9640-cb6b1d042805.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2541318,
+      "sha256": "2c302817f8b47764114a4f83234e2483105362a847a2a9af80c6aeb1c0741763"
+    },
+    {
+      "file": "candidates/camp-scene-v02.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-ef59845e-905f-47a9-b243-782b167d2c72.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2544768,
+      "sha256": "6ee3f5a4197778d70f414242387ec92ea5324fe8abb51132f5725026ea3154fd"
+    },
+    {
+      "file": "candidates/camp-scene-v03.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-efbb1c11-008e-448c-bb7a-80e013e54026.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2366814,
+      "sha256": "31a01974acc7649be86436629969ff8e1d0b0c91165fb99d88dc5806ded2b59d"
+    },
+    {
+      "file": "candidates/camp-scene-v04.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-66206ff6-dc70-4554-a6f8-56134d0fc80d.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2422727,
+      "sha256": "ec2294068b918354078d75104c2ce81d69bb73a0c3550424bdf850eecd67d85f"
+    },
+    {
+      "file": "candidates/victory-scene-v01.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-25a33de7-434f-484d-98f2-761cef97fc61.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2403349,
+      "sha256": "2813fdf8ac171859e6a915242359326ae2c8f6d0d1058dab49897523ffadd0ca"
+    },
+    {
+      "file": "candidates/victory-scene-v02.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-bf3152bd-182d-4cfb-8ae5-649291912134.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2342124,
+      "sha256": "6205d8bfb8dcbd3c2a271f48b29f6c1d9d6523d31269e0a03cbc5cccd9b4b9c5"
+    },
+    {
+      "file": "candidates/victory-scene-v03.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-37fd2762-be82-43b0-8ab7-1dc2254b9d1a.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2310501,
+      "sha256": "1b8cecd10fd7f12d0a2ce7041464719d8d11f1c67e550ec6dfe47a14f87a5201"
+    },
+    {
+      "file": "candidates/victory-scene-v04.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-b112f75e-16bf-412a-b1d7-bdd39264e251.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2285766,
+      "sha256": "2419f902ab6ee24615d56fc4cff3ed8ddbec472cd28f4d148030bbcc93d4358f"
+    },
+    {
+      "file": "refinements/camp-scene-character-scale.png",
+      "source": "C:\\Users\\zeroz\\.codex\\generated_images\\01a18c1f-85fb-7002-84b9-7b7a12d586f2\\exec-9425c714-7e07-4e9b-80f1-f984c858d0d3.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2268804,
+      "sha256": "31dce5dad92a6b9cb0d00dbf00269da889b0ac104575dc719748bc731b7f8485"
+    }
+  ]
+}

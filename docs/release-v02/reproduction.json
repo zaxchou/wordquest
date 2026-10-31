@@ -1,0 +1,31 @@
+{
+  "build_source": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release",
+  "authoritative_source": "Z:\\BaiduNetdiskWorkspace\\myagent-work\\zcode\\esp-mosaico-zax\\projects\\wordquest",
+  "utils_commit": "be151ae047014e79a9c7ae0092dd203844499003",
+  "bsp_commit": "a2c985ad698b3f04a21c63e006b43e7e948bc1d7",
+  "idf_path": "C:/Users/zeroz/esp/esp-idf",
+  "idf_commit": "7b9cc1ac79f865983f59bb8ff3ff43eb74ff1dbe",
+  "idf_tools": "C:/es/.espressif",
+  "idf_python": "C:/es/.espressif/python_env/idf6.2_py3.12_env/Scripts/python.exe",
+  "iris_python": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\.venv-iris\\Scripts\\python.exe",
+  "gsp": "1.5.1",
+  "gspc": "C:/Users/zeroz/esp/tools/gspc-0.7.0/gspc.exe",
+  "commands": [
+    "python release_build.py doctor",
+    "python release_build.py build",
+    "python release_package.py",
+    "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\.venv-iris\\Scripts\\python.exe release_verify.py"
+  ],
+  "reproduction_notes": [
+    "Restore the source ZIP into projects/wordquest of a separate workspace; never run it in an archive download/extraction directory",
+    "Clone official utils with --no-hardlinks and checkout the pinned commit; clone BSP at the recorded commit and apply evidence/bsp-existing-key-fix.patch",
+    "Install Iris host requirements.lock into an isolated .venv-iris",
+    "Reuse a COPY of managed_components or resolve dependencies.lock through IDF; never share mutable build output",
+    "Scripts sanitize MSYSTEM/MINGW_PREFIX and set tool paths only in Python child environments",
+    "The original Z application and original C build workspace were not migrated in place",
+    "No device operation, upload, commit or push was performed"
+  ],
+  "bundle": "Z:\\BaiduNetdiskWorkspace\\myagent-work\\zcode\\esp-mosaico-zax\\firmware\\wordquest-v0.2-system-update.irisfw",
+  "sha256": "25d1dac8ddf2c230ffcbbee3400eb21022086b7dd309318c0883e12db8b316c1",
+  "size": 2269436
+}

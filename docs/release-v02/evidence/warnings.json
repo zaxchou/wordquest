@@ -1,0 +1,41 @@
+{
+  "low_noise_reported_warnings": 2,
+  "compiler_warnings": [
+    "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wordquest_ui.c:652:13: warning: 'browse_set_text' defined but not used [-Wunused-function]"
+  ],
+  "cmake_warnings": [
+    "CMake Warning (dev) at C:/Users/zeroz/esp/work/wordquest-v02-release/submodule/esp-mosaico-utils/mosaico-tools/cmake/gsp_bundle.cmake:34 (add_custom_command):\n  The following keywords are not supported when using APPEND with\n  add_custom_command(OUTPUT): VERBATIM.\n\n  Policy CMP0175 is not set: add_custom_command() rejects invalid arguments.\n  Run \"cmake --help-policy CMP0175\" for policy details.  Use the cmake_policy\n  command to set the policy and suppress this warning.\nCall Stack (most recent call first):\n  main/CMakeLists.txt:9 (mosaico_gsp_add_ui_bundle)",
+    "CMake Warning at C:/Users/zeroz/esp/esp-idf/tools/cmake/component_validation.cmake:106 (message):\n  Private include directory\n  'C:/Users/zeroz/esp/esp-idf/components/esp_wifi/wifi_apps/roaming_app/include'\n  belongs to component esp_wifi but is being used by component\n  wpa_supplicant.  It is recommended to define the component dependency for\n  wpa_supplicant on the component esp_wifi, i.e.  'idf_component_register(...\n  PRIV_REQUIRES esp_wifi)' in the CMakeLists.txt of wpa_supplicant, and\n  specify the included directory as idf_component_register(...\n  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of",
+    "CMake Warning at C:/Users/zeroz/esp/esp-idf/tools/cmake/component_validation.cmake:106 (message):\n  Private include directory\n  'C:/Users/zeroz/esp/esp-idf/components/esp_wifi/wifi_apps/roaming_app/src'\n  belongs to component esp_wifi but is being used by component\n  wpa_supplicant.  It is recommended to define the component dependency for\n  wpa_supplicant on the component esp_wifi, i.e.  'idf_component_register(...\n  PRIV_REQUIRES esp_wifi)' in the CMakeLists.txt of wpa_supplicant, and\n  specify the included directory as idf_component_register(...\n  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of",
+    "CMake Warning at C:/Users/zeroz/esp/esp-idf/tools/cmake/component_validation.cmake:106 (message):\n  Private include directory\n  'C:/Users/zeroz/esp/esp-idf/components/esp_wifi/wifi_apps/include/apps_private'\n  belongs to component esp_wifi but is being used by component\n  wpa_supplicant.  It is recommended to define the component dependency for\n  wpa_supplicant on the component esp_wifi, i.e.  'idf_component_register(...\n  PRIV_REQUIRES esp_wifi)' in the CMakeLists.txt of wpa_supplicant, and\n  specify the included directory as idf_component_register(...\n  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of",
+    "CMake Warning at C:/Users/zeroz/esp/esp-idf/tools/cmake/component_validation.cmake:106 (message):\n  Private include directory\n  'C:/Users/zeroz/esp/esp-idf/components/wpa_supplicant/src' belongs to\n  component wpa_supplicant but is being used by component esp_wifi.  It is\n  recommended to define the component dependency for esp_wifi on the\n  component wpa_supplicant, i.e.  'idf_component_register(...  PRIV_REQUIRES\n  wpa_supplicant)' in the CMakeLists.txt of esp_wifi, and specify the\n  included directory as idf_component_register(...  PRIV_INCLUDE_DIRS <dir\n  relative to component>) in the CMakeLists.txt of component wpa_supplicant.",
+    "CMake Warning at C:/Users/zeroz/esp/esp-idf/tools/cmake/component_validation.cmake:106 (message):\n  Private include directory\n  'C:/Users/zeroz/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src'\n  belongs to component wpa_supplicant but is being used by component\n  esp_wifi.  It is recommended to define the component dependency for\n  esp_wifi on the component wpa_supplicant, i.e.  'idf_component_register(...\n  PRIV_REQUIRES wpa_supplicant)' in the CMakeLists.txt of esp_wifi, and\n  specify the included directory as idf_component_register(...\n  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of"
+  ],
+  "gsp_diagnostics": [
+    "\"code\": \"GSPC-RS-FONT-CHARSET\",",
+    "\"message\": \"$.objects[65]: \\\\\\\\?\\\\C:\\\\Users\\\\zeroz\\\\esp\\\\work\\\\wordquest-v02-release\\\\projects\\\\wordquest\\\\ui\\\\fonts\\\\DengSub.ttf @16px: runtime-bound text has no font_charset; using printable ASCII\",",
+    "\"path\": \"$.objects[65].font_charset\",",
+    "\"property\": \"font_charset\",",
+    "\"code\": \"GSPC-RS-FONT-CHARSET\",",
+    "\"message\": \"$.objects[111]: \\\\\\\\?\\\\C:\\\\Users\\\\zeroz\\\\esp\\\\work\\\\wordquest-v02-release\\\\projects\\\\wordquest\\\\ui\\\\fonts\\\\DengSub.ttf @18px: runtime-bound text has no font_charset; using printable ASCII\",",
+    "\"path\": \"$.objects[111].font_charset\",",
+    "\"property\": \"font_charset\",",
+    "\"code\": \"GSPC-RS-FONT-MISSING\",",
+    "\"message\": \"font \\\\\\\\?\\\\C:\\\\Users\\\\zeroz\\\\esp\\\\work\\\\wordquest-v02-release\\\\projects\\\\wordquest\\\\ui\\\\fonts\\\\DengSub.ttf @18px is missing 13 codepoint(s): U+0023, U+002A, U+003C, U+003E, U+0040, U+005C, U+005E, U+005F, U+0060, U+007B, U+007C, U+007D, U+007E\",",
+    "\"code\": \"GSPC-RS-FONT-MISSING\",",
+    "\"message\": \"font \\\\\\\\?\\\\C:\\\\Users\\\\zeroz\\\\esp\\\\work\\\\wordquest-v02-release\\\\projects\\\\wordquest\\\\ui\\\\fonts\\\\DengSub.ttf @16px is missing 13 codepoint(s): U+0023, U+002A, U+003C, U+003E, U+0040, U+005C, U+005E, U+005F, U+0060, U+007B, U+007C, U+007D, U+007E\","
+  ],
+  "host_warning": [
+    "WARNING: 1/2 app partitions are too small for binary wordquest.bin size 0x1c5c10:"
+  ],
+  "notes": [
+    "Low-noise warning counter does not include all CMake/GSP structured diagnostics",
+    "UI source not modified to suppress existing warning",
+    "Initial simulator manager failed with ZipInfo.read AttributeError; cached official sim 1.5.1 run passed",
+    "Simulator startup warning: image cache smaller than startup set, excess decoded lazily"
+  ],
+  "partition_size_warning_context": [
+    "WARNING: 1/2 app partitions are too small for binary wordquest.bin size 0x1c5c10:\n\n  - Part 'vibe_mode' 0/32 @ 0x20000 size 0x1c0000 (overflow 0x5c10)\n\nExecuting action: all (aliases: build)\nRunning cmake in directory C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\nExecuting \"cmake -G Ninja -B C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=C:\\es\\.espressif\\python_env\\idf6.2_py3.12_env\\Scripts\\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=True -DCONFIGDEP_ENABLE=False C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\"..."
+  ],
+  "partition_size_warning_explanation": "IDF checks all app partitions including retained vibe_mode/test (0x1c0000). Wordquest binary is larger than vibe_mode but targets only main_app/ota_0 at 0x210000 with 0xc70000 capacity. The application bundle must not contain a recovery component."
+}

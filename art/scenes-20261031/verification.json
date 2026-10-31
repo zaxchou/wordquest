@@ -1,0 +1,10 @@
+{
+  "selected_scenes": 2,
+  "candidate_images": 8,
+  "refinement_images": 1,
+  "unique_generated_images": 9,
+  "png_files": 11,
+  "source_hashes_match": true,
+  "all_sources_square": true,
+  "manual_ui_and_text_review": "passed"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "camp-scene",
+    "label": "营地主页纯场景",
+    "selected_variant": 3,
+    "selected_source_file": "refinements/camp-scene-character-scale.png",
+    "refined": true,
+    "reason": "基于营地v3放大主角至约35%画面高度；主角在篝火右侧并面向右，右侧保持深色针叶林。所有区域均为自然场景。"
+  },
+  {
+    "id": "victory-scene",
+    "label": "结算页纯场景",
+    "selected_variant": 4,
+    "selected_source_file": "candidates/victory-scene-v04.png",
+    "refined": false,
+    "reason": "背身举剑、发光宝箱和败北Boss清楚，角色完整入画，底部连续草地和灌木较暗，庆祝光效有节制。"
+  }
+]

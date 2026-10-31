@@ -3,6 +3,7 @@
 #include "wq_dict.h"
 
 #include <string.h>
+#include <stdio.h>
 
 #include "miniz_tinfl.h"
 #include "wq_books_blob.h"

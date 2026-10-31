@@ -12,7 +12,9 @@
 // re-queue the word without changing boss HP, so forgetting is never
 // punished twice.
 
-#define WQ_NEW_WORDS_PER_DAY 10U
+// Hard cap on daily new words: task arrays are sized from this. The user's
+// configured quota (5..20, UI layer) must never exceed it.
+#define WQ_NEW_WORDS_PER_DAY 20U
 #define WQ_OPTIONS 4U
 
 typedef enum {
@@ -46,7 +48,9 @@ typedef struct {
 // Build a session: `new_count` words get one learn task each plus quiz
 // tasks (immediate recall + shuffled review pass); `review_count` learned
 // words get one shuffled quiz each. Boss HP equals the number of quiz
-// tasks. Task storage is caller-owned.
+// tasks. Task storage is caller-owned. Invalid/duplicate indices are skipped;
+// only complete three-task new-word groups that fit the capacity are included.
+// Mutable session state belongs to the calling UI task.
 void wq_session_start(wq_session_t *s, const wq_word_entry_t *pack,
                       size_t pack_count, const size_t *new_words,
                       size_t new_count, const size_t *review_words,
@@ -56,16 +60,20 @@ void wq_session_start(wq_session_t *s, const wq_word_entry_t *pack,
 // Current task, or NULL when every task is done (boss defeated).
 const wq_task_t *wq_session_current(const wq_session_t *s);
 
-// Fill `slots` with word indices for the current quiz task (one correct,
-// remaining distinct distractors) and return the correct slot.
+// Fill `slots` and s->options with the current quiz's cached word indices.
+// Return the correct slot, or WQ_OPTIONS when no quiz can be built. Distractors
+// are distinct for packs of >= WQ_OPTIONS words; smaller packs repeat valid
+// indices. Repainting preserves the options and the already-answered state.
 size_t wq_session_build_options(wq_session_t *s, size_t *slots);
 
 // Score the current quiz task. Returns true on a correct answer (boss
 // takes damage); a wrong answer reveals nothing here and re-queues the
-// task. Repeated calls on the same task are ignored.
+// task. WQ_OPTIONS means "forgot"; larger slots are ignored. Repeated calls on
+// the same attempt are ignored. At capacity the quiz stays pending until retry.
 bool wq_session_answer(wq_session_t *s, size_t slot);
 
-// Move past the current task. Returns false when the session is complete.
+// Move past completed tasks, or reopen an answered pending quiz for retry.
+// Returns false when the session is complete.
 bool wq_session_advance(wq_session_t *s);
 
 // Mark the current task done without scoring (learn cards).

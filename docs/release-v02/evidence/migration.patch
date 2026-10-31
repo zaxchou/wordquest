@@ -1,0 +1,37 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,9 +9,9 @@
+ endif()
+ include("${MOSAICO_UTILS_ROOT}/mosaico-tools/cmake/gsp_compiler.cmake")
+ list(APPEND EXTRA_COMPONENT_DIRS
+-    "${MOSAICO_UTILS_ROOT}/esp-mosaico-recovery/components/esp_mosaico_app_recovery"
++    "${MOSAICO_UTILS_ROOT}/esp-mosaico-vibe-mode/components/esp_mosaico_app_recovery"
+     "${MOSAICO_UTILS_ROOT}/mosaico-tools/components/esp_mosaico_gsp_bundle"
+     "${MOSAICO_UTILS_ROOT}/mosaico-tools/components/esp_mosaico_gsp_iris")
+-include("${MOSAICO_UTILS_ROOT}/esp-mosaico-recovery/cmake/mosaico_idf_project.cmake")
++include("${MOSAICO_UTILS_ROOT}/esp-mosaico-vibe-mode/cmake/mosaico_idf_project.cmake")
+ project(wordquest VERSION 1.0.0)
+ include("${MOSAICO_UTILS_ROOT}/mosaico-tools/cmake/system_update.cmake")
+--- a/partitions.csv
++++ b/partitions.csv
+@@ -2,8 +2,8 @@
+ otadata,   data, ota,     0x9000,   0x2000,
+ phy_init,  data, phy,     0xb000,   0x1000,
+ sysmeta,   data, nvs,     0xc000,   0x14000,
+-factory,   app,  factory, 0x20000,  0x1c0000,
++vibe_mode, app,  test,    0x20000,  0x1c0000,
+ coredump,  data, coredump,0x1e0000, 0x20000,
+ nvs,       data, nvs,     0x200000, 0x10000,
+-ota_0,     app,  ota_0,   0x210000, 0xc70000,
++main_app,  app,  ota_0,   0x210000, 0xc70000,
+ ui_apps,   data, 0x40,    0xe80000, 0x180000,
+--- a/sdkconfig.defaults
++++ b/sdkconfig.defaults
+@@ -42,6 +42,7 @@
+ CONFIG_ESP_IRIS_MEDIA_BUFFER_PSRAM=y
+ # ESP-Iris assembles a wire frame in its own 4096-byte buffer. CDC can feed
+ # and drain it in chunks; keep RX >= endpoint capacity.
++CONFIG_TINYUSB_CDC_COUNT=2
+ CONFIG_TINYUSB_CDC_RX_BUFSIZE=1024
+ CONFIG_TINYUSB_CDC_TX_BUFSIZE=1024
+ CONFIG_TINYUSB_CDC_EP_BUFSIZE=512

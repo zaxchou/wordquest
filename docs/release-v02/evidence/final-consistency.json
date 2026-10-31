@@ -1,0 +1,8 @@
+{
+  "elf_sha256": "3f43eda1024c1742aef606e848d9be54a9cffc3bc5e15845a2a5e1e7e21ac904",
+  "app_bin_sha256": "85bc06d65f65b3a440fd3379ab86daebcf7d710958389e8c51452a5762cbb96d",
+  "old_bundle_unchanged": true,
+  "new_bundle_copy_verified": true,
+  "sdkconfig_sha256": "45b164ba463c621f720ea5805c08cd53a10c0851b9b8c742bc144fe483052fa1",
+  "no_device_operations": true
+}

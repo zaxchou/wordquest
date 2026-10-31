@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "run_id": "20261101-032852-build-41144",
+  "action": "build",
+  "status": "ok",
+  "exit_code": 0,
+  "duration_seconds": 552.5,
+  "project": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest",
+  "idf_path": "C:\\Users\\zeroz\\esp\\esp-idf",
+  "target": "esp32s31",
+  "build_dir": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build",
+  "warnings": 2,
+  "diagnostic": null,
+  "artifacts": [
+    {
+      "path": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\wordquest.bin",
+      "size_bytes": 1858576
+    },
+    {
+      "path": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\wordquest.elf",
+      "size_bytes": 16259712
+    },
+    {
+      "path": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\ota_data_initial.bin",
+      "size_bytes": 8192
+    },
+    {
+      "path": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\build\\ui_apps.bin",
+      "size_bytes": 1521552
+    }
+  ],
+  "raw_log": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\.codex-runs\\idf-low-noise-build\\20261101-032852-build-41144\\raw.log",
+  "clean_log": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\.codex-runs\\idf-low-noise-build\\20261101-032852-build-41144\\clean.log",
+  "result_file": "C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\.codex-runs\\idf-low-noise-build\\20261101-032852-build-41144\\result.json"
+}

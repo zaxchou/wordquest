@@ -1,0 +1,111 @@
+-- Building for: Ninja
+-- The C compiler identification is GNU 16.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Users/zeroz/esp/tools/w64devkit/bin/cc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- sim_bridge: using gspc 0.7.0 from GSPC_EXECUTABLE CMake variable
+-- Configuring done (2.5s)
+-- Generating done (0.2s)
+CMake Warning (unused-cli):
+  Manually-specified variables were not used by the project:
+
+    ESP_GSP_PYTHON_EXECUTABLE
+    PROJECT_DIR
+
+
+-- Build files have been written to: C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim
+[1/18] Building C object sim_bridge/CMakeFiles/gsp_sim_bridge.dir/src/images.c.obj
+[2/18] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\zeroz\esp\work\wordquest-v02-release\projects\wordquest\build-sim && C:\Users\zeroz\esp\tools\w64devkit\bin\cmake.exe -E make_directory C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets && C:\Users\zeroz\esp\tools\gspc-0.7.0\gspc.exe pack C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json --deployable --profile C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/managed_components/espressif__esp-gsp/tools/sim_bridge/profiles/rgb565.yaml --gen-dir C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets --api-header C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets/bundle_gsp.h --symbol bridge_bundle -o C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets/app.gspb"
+[
+  {
+    "code": "GSPC-RS-FONT-CHARSET",
+    "message": "$.objects[65]: \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @16px: runtime-bound text has no font_charset; using printable ASCII",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": "$.objects[65].font_charset",
+    "objectIndex": 65,
+    "property": "font_charset",
+    "range": null,
+    "suggestions": []
+  },
+  {
+    "code": "GSPC-RS-FONT-CHARSET",
+    "message": "$.objects[111]: \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @18px: runtime-bound text has no font_charset; using printable ASCII",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": "$.objects[111].font_charset",
+    "objectIndex": 111,
+    "property": "font_charset",
+    "range": null,
+    "suggestions": []
+  },
+  {
+    "code": "GSPC-RS-FONT-MISSING",
+    "message": "font \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @18px is missing 13 codepoint(s): U+0023, U+002A, U+003C, U+003E, U+0040, U+005C, U+005E, U+005F, U+0060, U+007B, U+007C, U+007D, U+007E",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": null,
+    "objectIndex": null,
+    "property": null,
+    "range": null,
+    "suggestions": []
+  },
+  {
+    "code": "GSPC-RS-FONT-MISSING",
+    "message": "font \\\\?\\C:\\Users\\zeroz\\esp\\work\\wordquest-v02-release\\projects\\wordquest\\ui\\fonts\\DengSub.ttf @16px is missing 13 codepoint(s): U+0023, U+002A, U+003C, U+003E, U+0040, U+005C, U+005E, U+005F, U+0060, U+007B, U+007C, U+007D, U+007E",
+    "severity": "warning",
+    "file": "C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/ui/main.json",
+    "screen": null,
+    "path": null,
+    "objectIndex": null,
+    "property": null,
+    "range": null,
+    "suggestions": []
+  }
+]
+gspc: resource-usage bundle_bytes=1889168 bundle=1.8MiB scenes=1 animation_frame_peak_bytes=0 animation_frame_peak=0B animation_frame_budget_bytes=2097152 image_cache_default=enabled image_cache_budget_bytes=0 reports=C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets output=C:/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/build-sim/wordquest_backend_assets/app.gspb
+[3/18] Building C object sim_bridge/CMakeFiles/gsp_sim_bridge.dir/src/media.c.obj
+[4/18] Building C object sim_bridge/CMakeFiles/gsp_sim_bridge.dir/src/api.c.obj
+[5/18] Building C object sim_bridge/CMakeFiles/gsp_sim_bridge.dir/src/assets.c.obj
+[6/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wq_audio.c.obj
+[7/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wq_stats.c.obj
+[8/18] Building C object CMakeFiles/wordquest_backend.dir/platform_pc.c.obj
+[9/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wq_model.c.obj
+[10/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/managed_components/espressif__esp-gsp/tools/sim_bridge/src/main.c.obj
+[11/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wq_settings.c.obj
+[12/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wq_dict.c.obj
+[13/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wq_progress.c.obj
+[14/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/miniz_tinfl.c.obj
+[15/18] Building C object CMakeFiles/wordquest_backend.dir/C_/Users/zeroz/esp/work/wordquest-v02-release/projects/wordquest/main/wordquest_ui.c.obj
+[16/18] Building C object sim_bridge/CMakeFiles/gsp_sim_bridge.dir/src/transport.c.obj
+[17/18] Linking C static library sim_bridge\libgsp_sim_bridge.a
+[18/18] Linking C executable wordquest_backend.exe
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\es\.espressif\python_env\idf6.2_py3.12_env\Lib\site-packages\gsp\execute.py", line 94, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\es\.espressif\python_env\idf6.2_py3.12_env\Lib\site-packages\gsp\execute.py", line 79, in main
+    executable = executable_from_environment(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\es\.espressif\python_env\idf6.2_py3.12_env\Lib\site-packages\gsp\execute.py", line 54, in executable_from_environment
+    return manager.resolve(requested_version)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\es\.espressif\python_env\idf6.2_py3.12_env\Lib\site-packages\gsp\manager.py", line 65, in resolve
+    installed = self._install(destination, artifact, version, host)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\es\.espressif\python_env\idf6.2_py3.12_env\Lib\site-packages\gsp\manager.py", line 139, in _install
+    _safe_extract(archive, artifact.archive_format, extracted)
+  File "C:\es\.espressif\python_env\idf6.2_py3.12_env\Lib\site-packages\gsp\manager.py", line 246, in _safe_extract
+    shutil.copyfileobj(member, output)
+  File "C:\Users\zeroz\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 201, in copyfileobj
+    fsrc_read = fsrc.read
+                ^^^^^^^^^
+AttributeError: 'ZipInfo' object has no attribute 'read'
+sim_bridge: sim_host exited before becoming ready (1)
